@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: secure-order-api
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: secure-order-api
+
+  template:
+    metadata:
+      labels:
+        app: secure-order-api
+
+    spec:
+      containers:
+      - name: secure-order-api
+        image: secure-order-api:v2
+
+        ports:
+        - containerPort: 3000
